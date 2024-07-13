@@ -7,6 +7,7 @@ const csv = require("csvtojson/v2");
 const {
   executablePath,
   defaultViewport,
+  domain,
   shopUrl,
   shopUrlSearch,
   shopUrlParameters,
@@ -20,10 +21,9 @@ const delay = (time) => {
 };
 
 const getCookiesForPuppeteer = async () => {
-  const domain = "https://www.yourwobb.com/";
   const cookies = await chrome.getCookiesPromised(shopUrl);
   return Object.entries(cookies).map((cookie) => {
-    return { name: cookie[0], value: cookie[1], domain: shopUrl };
+    return { name: cookie[0], value: cookie[1], domain };
   });
 };
 
@@ -74,8 +74,8 @@ const mapColor = (csvColor) => {
   context.overridePermissions(shopUrl, ["notifications"]); // Avoid notifications alert
   const [page] = await browser.pages();
   page.setDefaultTimeout(3000);
-  await page.setCookie(...cookies);
   await page.goto(shopUrl);
+  await page.setCookie(...cookies);
 
   const missingParts = [];
   for (const part of parts) {
@@ -105,6 +105,7 @@ const mapColor = (csvColor) => {
   }
   console.log("### BEGIN OF MISSING PARTS ####");
   console.log(missingParts);
+  console.log(await page.cookies());
   console.log("### END OF MISSING PARTS ####");
   await browser.close();
 })();
