@@ -29,32 +29,114 @@ const getCookiesForPuppeteer = async () => {
 
 const mapColor = (csvColor) => {
   switch (csvColor) {
-    case "0":
-      return "Black 26";
+    case "4":
+      return "Red 21";
+    case "29":
+      return "Bright Pink 222";
+    case "5":
+      return "Dark Pink 221";
+    case "26":
+      return "Magenta 124";
+    case "320":
+      return "Dark Red 154";
+    case "353":
+      return "Coral 353";
+    case "25":
+      return "Orange 106";
     case "14":
       return "Yellow 24";
+    case "19":
+      return "Tan 5";
+    case "78":
+      return "Light Flesh 283";
+    case "226":
+      return "Bright Light Yellow 226";
+    case "28":
+      return "Dark Tan 138";
+    case "297":
+      return "Pearl Gold 297";
+    case "191":
+      return "Bright Light Orange 191";
+    case "92":
+      return "Flesh 18";
+    case "2":
+      return "Green 28";
+    case "27":
+      return "Lime 119";
+    case "10":
+      return "Bright Green 37";
+    case "326":
+      return "Yellowish Green 326";
+    case "323":
+      return "Light Aqua 323";
+    case "322":
+      return "Medium Azure 322";
+    case "288":
+      return "Dark Green 141";
+    case "378":
+      return "Sand Green 151";
+    case "330":
+      return "Olive Green 330";
+    case "1":
+      return "Blue 23";
+    case "321":
+      return "Dark Azure 321";
+    case "73":
+      return "Medium Blue 102";
+    case "212":
+      return "Bright Light Blue 212";
+    case "379":
+      return "Sand Blue 135";
+    case "272":
+      return "Dark Blue 140";
+    case "85":
+      return "Dark Purple 268";
+    case "30":
+      return "Medium Lavender 324";
+    case "31":
+      return "Lavender 325";
     case "71":
       return "Light Bluish Gray 194";
     case "72":
       return "Dark Bluish Gray 199";
-    case "1":
-      return "Blue 23";
-    case "4":
-      return "Red 21";
+    case "179":
+      return "Flat Silver 315";
+    case "0":
+      return "Black 26";
     case "70":
       return "Reddish Brown 192";
-    case "28":
-      return "Dark Tan 138";
-    case "19":
-      return "Tan 5";
-    case "182":
+    case "308":
+      return "Dark Brown 308";
+    case "484":
+      return "Dark Orange 38";
+    case "84":
+      return "Medium Dark Flesh 312";
+    case "15":
+      return "White 1";
+    case "36":
+      return "Trans-Red 41";
+    case "37":
+      return "Trans Dark Pink 113";
+    case "57":
       return "Trans-Orange 182";
+    case "46":
+      return "Trans Yellow 44";
+    case "34":
+      return "Trans Green 48";
+    case "42":
+      return "Trans Neon Green 49";
+    case "33":
+      return "Trans Dark Blue 43";
+    case "43":
+      return "Trans Medium Blue 42";
+    case "52":
+      return "Trans Purple 126";
+    case "40":
+      return "Trans Black 111";
     case "47":
       return "Trans-Clear 40";
     case "80":
       return "Light Silver Gray 315";
-    case "36":
-      return "Trans-Red 41";
     default:
       return csvColor;
   }

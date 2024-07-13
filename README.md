@@ -13,7 +13,6 @@ Small UI automation script for adding Gobricks bricks to the cart of [yourwobb](
 6. Run `npm run start`
 
 ### Limitations:
-- Not all [rebrickable](https://rebrickable.com/) colors are matched to Gobricks colors at the moment
 - Not all bricks have an equivalent to Gobricks
 
 ### Disclaimer
