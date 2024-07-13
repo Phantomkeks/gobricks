@@ -94,8 +94,8 @@ const mapPartNumber = (partNumber) => {
   const context = browser.defaultBrowserContext();
   context.overridePermissions(shopUrl, ["notifications"]); // Avoid notifications alert
   const [page] = await browser.pages();
-  page.setDefaultTimeout(3000);
   await page.setCookie(...cookies);
+  page.setDefaultTimeout(3000);
   await page.goto(shopUrl);
 
   const missingParts = [];
