@@ -53,8 +53,6 @@ const mapColor = (csvColor) => {
       return "Trans-Clear 40";
     case "80":
       return "Light Silver Gray 315";
-    case "71":
-      return "White 1";
     case "36":
       return "Trans-Red 41";
     default:
@@ -62,7 +60,30 @@ const mapColor = (csvColor) => {
   }
 };
 
+const mapPartNumber = (partNumber) => {
+  if (/.*[a-z]$/.test(partNumber)) {
+    return partNumber.replace(/[a-zA-Z]/, "");
+  }
+  switch (partNumber) {
+    case "44861":
+      return "92280";
+    case "42135":
+      return "32039";
+    case "42195":
+      return "26287";
+    case "44874":
+      return "87082";
+    case "65304":
+      return "32054";
+    case "65487":
+      return "15100";
+    default:
+      return partNumber;
+  }
+};
+
 (async () => {
+  const startTime = Date.now();
   const parts = await csv().fromFile(csvFilePath);
   const cookies = await getCookiesForPuppeteer();
   const browser = await puppeteer.launch({
@@ -78,11 +99,15 @@ const mapColor = (csvColor) => {
   await page.goto(shopUrl);
 
   const missingParts = [];
+  let counter = 0;
   for (const part of parts) {
     try {
-      const url = `${shopUrl}${shopUrlSearch}${part.Part}${shopUrlParameters}`;
+      console.log(`${counter} / ${parts.length} finished`);
+      counter++;
+      const url = `${shopUrl}${shopUrlSearch}"${mapPartNumber(part.Part)}"${shopUrlParameters}`;
       const color = mapColor(part.Color);
       await page.goto(url);
+      await page.waitForSelector(".card__hover-image", { timeout: 3_000 });
       await page
         .locator(".card__hover-image")
         .filter((img) => img.alt.indexOf("GOBRICKS GDS") !== -1)
@@ -107,4 +132,7 @@ const mapColor = (csvColor) => {
   console.log(missingParts);
   console.log("### END OF MISSING PARTS ####");
   await browser.close();
+  console.log(`Elapsed time: `, {
+    elapsedSeconds: ((Date.now() - startTime) / 1000).toFixed(1),
+  });
 })();

@@ -1,6 +1,6 @@
 {
   "name": "gobricks",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Small UI automation script for adding Gobricks bricks to the cart",
   "main": "index.js",
   "scripts": {
