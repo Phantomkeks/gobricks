@@ -74,8 +74,8 @@ const mapColor = (csvColor) => {
   context.overridePermissions(shopUrl, ["notifications"]); // Avoid notifications alert
   const [page] = await browser.pages();
   page.setDefaultTimeout(3000);
-  await page.goto(shopUrl);
   await page.setCookie(...cookies);
+  await page.goto(shopUrl);
 
   const missingParts = [];
   for (const part of parts) {
@@ -105,7 +105,6 @@ const mapColor = (csvColor) => {
   }
   console.log("### BEGIN OF MISSING PARTS ####");
   console.log(missingParts);
-  console.log(await page.cookies());
   console.log("### END OF MISSING PARTS ####");
   await browser.close();
 })();
