@@ -7,4 +7,5 @@ module.exports = {
   shopUrlSearch: "search?q=",
   shopUrlParameters:
     "&type=article%2Cpage%2Cproduct&options%5Bprefix%5D=last&sort_by=price-ascending&filter.p.vendor=GOBRICKS&filter.p.vendor=Gobricks",
+  csvFilePath: "./CSV/parts.csv",
 };

@@ -25,6 +25,7 @@
   "homepage": "https://github.com/Phantomkeks/gobricks#readme",
   "dependencies": {
     "chrome-cookies-secure": "2.1.1",
+    "csvtojson": "2.0.10",
     "puppeteer-core": "22.13.0"
   },
   "devDependencies": {
