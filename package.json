@@ -4,7 +4,7 @@
   "description": "Small UI automation script for adding Gobricks bricks to the cart",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/Phantomkeks/gobricks/issues"
   },
-  "homepage": "https://github.com/Phantomkeks/gobricks#readme"
+  "homepage": "https://github.com/Phantomkeks/gobricks#readme",
+  "dependencies": {
+    "puppeteer": "22.13.0"
+  }
 }
